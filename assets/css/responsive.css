@@ -1,0 +1,162 @@
+/* ==========================================================================
+   Rene VA Services – responsive overrides (desktop-first adjustments)
+   Breakpoints follow Bootstrap 5: xxl 1400 / xl 1200 / lg 992 / md 768 / sm 576
+   ========================================================================== */
+
+/* Wide desktops: keep the hero visual from getting over-scaled */
+@media (min-width: 1600px) {
+  .hero { --hv-w: 54vw; }
+}
+
+/* Align contact copy with the active container width */
+@media (min-width: 1200px) and (max-width: 1399.98px) {
+  .contact-cta { padding-left: calc((100vw - 1140px) / 2 + .75rem); }
+}
+@media (min-width: 992px) and (max-width: 1199.98px) {
+  .about-facts { grid-template-columns: repeat(2, minmax(0, 1fr)); max-width: 720px; margin-inline: auto; }
+}
+@media (min-width: 992px) and (max-width: 1199.98px) {
+  .contact-cta { padding-left: calc((100vw - 960px) / 2 + .75rem); }
+  .navbar-nav { gap: .9rem; }
+  .navbar .nav-link { font-size: .93rem; }
+  .brand-logo { height: 70px; }
+  .pricing-group { padding-inline: .6rem; }
+  .price-card { padding: 1rem .8rem 1.1rem; }
+  .price-card .desc { font-size: .8rem; }
+  .contact-details { flex-direction: column; gap: .25rem; }
+  .contact-sep { display: none; }
+}
+
+/* ---------- Tablet & below: collapsed navigation ---------- */
+@media (max-width: 991.98px) {
+  :root { --header-h: 74px; }
+  .brand-logo { height: 62px; }
+  .site-header.scrolled .brand-logo { height: 54px; }
+
+  .navbar-collapse {
+    margin-top: .6rem;
+    border-top: 1px solid var(--border);
+    padding-block: .5rem 1rem;
+    max-height: calc(100vh - 90px);
+    overflow-y: auto;
+  }
+  .navbar-nav { gap: 0; }
+  .navbar .nav-link { padding: .75rem .25rem !important; font-size: 1rem; border-bottom: 1px solid var(--cream-2); }
+  .navbar .nav-link::after,
+  .navbar .dropdown-toggle::before { left: 0; transform: none; bottom: 8px; }
+  .navbar .nav-link.active::after,
+  .navbar .dropdown-toggle.active::before { width: 36px; }
+  .navbar .nav-link:hover::after,
+  .navbar .dropdown-toggle:hover::before { width: 36px; }
+  .navbar .dropdown-toggle::after { position: static; }
+  .dropdown-menu { box-shadow: none; border: 0; border-left: 3px solid var(--gold); border-radius: 0; margin: .25rem 0 .5rem; min-width: 0; }
+
+  /* Hero stacks: copy first, workspace visual below */
+  .hero { flex-direction: column; align-items: stretch; min-height: 0; padding-bottom: 0; }
+  .hero-visual {
+    position: relative; width: 100%; order: 2; z-index: 0;
+    aspect-ratio: 1108 / 660;
+    margin-top: 2rem;
+  }
+  .hero-img { -webkit-mask-image: linear-gradient(180deg, transparent 0%, #000 18%); mask-image: linear-gradient(180deg, transparent 0%, #000 18%); object-position: 50% 50%; }
+  .hero .container { order: 1; }
+  .hero-copy { max-width: 640px; }
+  .hero-swoosh { z-index: 1; height: 56px; }
+  .about-copy { text-align: left; }
+  .about-portrait { max-width: 400px; }
+
+  .sample-card img { width: 36%; max-height: 190px; }
+
+  .digital-media { width: 34%; }
+  .digital-content { margin-left: 32%; }
+  .digital-curves { width: 60%; }
+
+  .pricing-group + .pricing-group {
+    border-left: 0; border-image: none;
+    border-top: 2px solid var(--gold);
+    margin-top: 2rem; padding-top: 2rem;
+  }
+
+  .contact-band { grid-template-columns: 1fr; }
+  .contact-band::before { width: 100%; height: 62%; clip-path: polygon(0 0, 100% 0, 100% 82%, 0 100%); }
+  .contact-band::after { width: 100%; height: 62%; clip-path: polygon(0 100%, 100% 82%, 100% 84%, 0 102%); top: 0; bottom: auto; transform: translateY(1px); }
+  .contact-cta { padding: 2.25rem 1.5rem 3rem; text-align: center; }
+  .contact-cta p { margin-inline: auto; }
+  .contact-details { padding: 1.25rem 1rem 1.75rem; }
+
+  .footer-main { justify-content: center; text-align: center; flex-direction: column; }
+  .footer-nav { justify-content: center; }
+  .footer-legal { border-left: 0; padding-left: 0; justify-content: center; }
+}
+
+/* ---------- Small tablets / large phones ---------- */
+@media (max-width: 767.98px) {
+  .about-facts { grid-template-columns: 1fr; }
+
+  .digital { padding-top: 0; }
+  .digital-media { position: relative; width: 100%; height: 190px; }
+  .digital-media img { -webkit-mask-image: linear-gradient(180deg, #000 55%, transparent 100%); mask-image: linear-gradient(180deg, #000 55%, transparent 100%); }
+  .digital-content { margin: -1rem 0 0; padding-left: 1.1rem; }
+  .digital-curves { width: 90%; height: 60%; top: auto; bottom: 0; opacity: .7; }
+
+  .sample-card img { width: 42%; }
+
+}
+
+/* ---------- Phones ---------- */
+@media (max-width: 575.98px) {
+  :root { --header-h: 74px; }
+  .container { padding-inline: 16px; }
+  .brand-logo { height: 54px; }
+  .site-header.scrolled .brand-logo { height: 48px; }
+
+  .hero { padding-top: 2rem; }
+  .hero-title { margin-bottom: 1.25rem; }
+  .hero-actions .btn { flex: 1 1 100%; }
+  .hero-visual { margin-top: 1.5rem; }
+  .task-list { top: 4%; left: 4%; width: 64%; height: 60%; gap: 4%; }
+  .task-card { padding: 0 .45rem 0 .6rem; gap: .5rem; font-size: .78rem; border-radius: 6px; }
+  .task-card > .bi:first-child { font-size: 1rem; }
+  .task-check { width: 20px; height: 20px; font-size: .7rem; }
+
+  .section-title.lined { gap: .9rem; }
+  .section-sub { font-size: .88rem; }
+  .section-sub .sep { display: block; height: 0; overflow: hidden; margin: 0; }
+
+  .service-card { gap: 1rem; }
+  .service-icon { font-size: 1.85rem; }
+
+  .digital .btn { width: 100%; }
+  .quote-cta { text-align: center; }
+  .quote-cta .btn { width: 100%; }
+  .digital-curves { display: none; }
+
+  .sample-card img { width: 40%; }
+  .sample-body { padding: .85rem .9rem; }
+
+  .contact-sep { display: none; }
+  .contact-details { flex-direction: column; gap: .25rem; }
+
+  .footer-nav { gap: .35rem 1.1rem; }
+  .footer-legal { flex-direction: column; gap: .25rem; }
+  .footer-legal span { display: none; }
+  .footer-credit { gap: .6rem; font-size: .85rem; flex-wrap: wrap; }
+  .footer-credit a { white-space: nowrap; }
+  .footer-credit .credit-line { max-width: 40px; }
+  .whatsapp-float { right: .9rem; bottom: .9rem; width: 50px; height: 50px; font-size: 1.45rem; }
+  .back-to-top { right: 1.1rem; bottom: calc(.9rem + 60px); }
+  .footer-contact { flex-direction: column; align-items: center; gap: .1rem; }
+  .site-footer { padding-bottom: 8.5rem; } /* keep footer text clear of the floating buttons */
+  .samples-note { border-radius: var(--radius); }
+}
+
+@media (max-width: 359.98px) {
+  .container { padding-inline: 14px; }
+  .hero-title { font-size: 2.1rem; }
+  .brand-logo { height: 48px; }
+  .task-list { width: 70%; height: 64%; }
+  .task-card { font-size: .72rem; }
+  .sample-card { flex-direction: column; }
+  .sample-card img { width: 100%; }
+  .footer-credit .credit-line { display: none; }
+}
